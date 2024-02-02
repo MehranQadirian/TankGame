@@ -7,11 +7,15 @@ namespace TankShooter
 {
     public partial class Form1 : Form
     {
+        //Variables
         private int Score ,Distance , Kills , i , CounterSpawnPlayerToStartLocation , GetScoreMore , MoveSaveLabel , outNum;
         private bool keyUp, keyDown, keyLeft, keyRight, keyShot, hard, FireEnemy1, FireEnemy2, FireEnemy3, GameOverCheck
             , keyCntrl, Start, Pause, keyDelete;
         private string ReadCharScore;
         Random rnd = new Random();
+
+        
+        //Constructor
         public Form1()
         {
             InitializeComponent();
@@ -52,9 +56,10 @@ namespace TankShooter
             FireEnemy2 = false;
             FireEnemy3 = false;
             Application.EnableVisualStyles();
-
-            
         }
+
+        
+        //Update Function And Check This Function By "timer1"
         private new void Update()
         {
             label1.Text = $"Health : {progressBar1.Value * 10}";
@@ -70,6 +75,9 @@ namespace TankShooter
             if (keyCntrl == true)
                 timer5.Start();
         }
+
+        
+        //Bullets Of Tanks
         private void Bullet()
         {
             System.Media.SoundPlayer snd = new System.Media.SoundPlayer(Properties.Resources.Pistol_Sound_Effect__mp3cut_net___1_);
@@ -228,6 +236,8 @@ namespace TankShooter
             }
         }
 
+        
+        //Start The Game
         private void StartGame()
         {
             if(Pause == true)
@@ -247,6 +257,8 @@ namespace TankShooter
             lblResult.Text = "Started Game";
         }
 
+        
+        //Pause The Game
         private void PauseGame()
         {
             if(Start == true)
@@ -266,6 +278,9 @@ namespace TankShooter
             timer2.Stop();
             lblResult.Text = "Paused Game";
         }
+
+        
+        //This Function Defines The Enemies In The Game
         private void Enemy()
         {
             System.Media.SoundPlayer snd = new System.Media.SoundPlayer(Properties.Resources.Explosion_Sound_Effects);
@@ -355,8 +370,8 @@ namespace TankShooter
             }
         }
 
-
         
+        //This Function Will Be Executed If You Are Game-Over
         private void GameOver()
         {
             label3.Visible = true;
@@ -374,6 +389,7 @@ namespace TankShooter
             btnRestart.Show();
             GameOverCheck = true;
         }
+        //This Function Can Check Is Hard Mode Or Not
         private void HardModeGame()
         {
             if (hard == false)
@@ -390,6 +406,8 @@ namespace TankShooter
             }
         }
 
+        
+        //This Function Defines The Movement Of The Player's Tank
         private void PlayerMove()
         {
             foreach (Control x in this.Controls)
@@ -433,6 +451,10 @@ namespace TankShooter
                 }
             }
         }
+
+        
+        //This Function Defines The Movement Of The Blockers (STONES), 
+        //Their Position And Reaction Against The Player
         private void Block(bool hard)
         {
             Random rnd = new Random();
@@ -559,6 +581,9 @@ namespace TankShooter
                 }
             }
         }
+
+        
+        //This function defines the movement of the walls
         private void WallLocation()
         {
             foreach (Control x in this.Controls)
@@ -574,6 +599,9 @@ namespace TankShooter
                 }
             }
         }
+
+        
+        //This Function Can Save The Game Data
         private void Save()
         {
             if(keyCntrl == true)
@@ -596,6 +624,8 @@ namespace TankShooter
             }
         }
 
+        
+        //This function can restart the game when the player loses
         private void button1_Click(object sender, EventArgs e)
         {
             progressBar1.Value = 100;
@@ -618,22 +648,31 @@ namespace TankShooter
             enemy3.Location = new Point(Width + 200, pictureBox15.Location.Y + pictureBox15.Height + 500);
         }
 
+        
+        //This Function Can Delete Save File Game Data
         private void Delete()
         {
             if (File.Exists(Application.StartupPath + "\\Log"))
                 File.Delete(Application.StartupPath + "\\Log");
             keyDelete = false;
         }
+
+        
+        //When Played Closed The Game , Then Game Doing Save Score In Application Path
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Save();
         }
 
+        
+        //When Played Closed The Game , Then Game Doing Save Score In Application Path
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Save();
         }
 
+        
+        //This Is Game Main Function
         private void GameResult()
         {
             foreach (Control x in this.Controls)
@@ -786,19 +825,24 @@ namespace TankShooter
                 }
             }
         }
+
         
-        
+        //Change Easy Mode To Hard Mode By Click The lblHard
         private void lblHard_Click(object sender, EventArgs e)
         {
             HardModeGame();
         }
 
+        
+        //Start The Game By Click The lblStart
         private void lblStart_Click(object sender, EventArgs e)
         {
             if (GameOverCheck != true && Start == true)
                 StartGame();
         }
+
         
+        //Timer 2
         private void timer2_Tick(object sender, EventArgs e)
         {
             int valueP = progressBar1.Value;
@@ -807,11 +851,15 @@ namespace TankShooter
                 timer2.Stop();
         }
 
+        
+        //Change Location Function
         private void playerTank_LocationChanged(object sender, EventArgs e)
         {
             timer2.Start();
         }
 
+        
+        //Key Codes If Not Be "GameOverCheck" Equal To "True"
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (GameOverCheck != true)
@@ -863,6 +911,9 @@ namespace TankShooter
                         break;
                 }
         }
+
+        
+        //Key Up Codes If Not Be "GameOverCheck" Equal To "True"
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             if (GameOverCheck != true)
@@ -903,6 +954,8 @@ namespace TankShooter
                 }
         }
 
+        
+        //Timer 6
         private void timer6_Tick(object sender, EventArgs e)
         {
 
@@ -918,6 +971,8 @@ namespace TankShooter
             }
         }
 
+        
+        //When Form Loading This Function Run
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Hide();
@@ -925,6 +980,9 @@ namespace TankShooter
             intro.ShowDialog();
             this.Show();
         }
+
+        
+        //Timer 5
         private void timer5_Tick(object sender, EventArgs e)
         {
             if(lblSave.Visible == false)
@@ -937,26 +995,27 @@ namespace TankShooter
                 timer5.Stop();
                 timer6.Start();
             }
-            
                 lblSave.Top+=2;
         }
 
+        
+        //Pause The Game By Click The lblPause
         private void lblPause_Click(object sender, EventArgs e)
         {
             if (GameOverCheck != true && Pause == true)
                 PauseGame();
-                
         }
 
+
+        //Text Changed Function For lblScore
         private void lblScore_TextChanged(object sender, EventArgs e)
         {
             if (Score >= 2000)
                 hard = true;
-
-            
         }
 
 
+        //Timer3
         private void timer3_Tick(object sender, EventArgs e)
         {
             int X = rnd.Next(50, Width - 150);
@@ -977,7 +1036,7 @@ namespace TankShooter
                 timer3.Stop();
             }
         }
-
+        //Timer 4
         private void Timer4StartSection(object sender, EventArgs e)
         {
             CounterSpawnPlayerToStartLocation++;
@@ -1000,19 +1059,19 @@ namespace TankShooter
                 timer4.Stop();
             }
         }
-
+        
         private void pictureBox11_SizeChanged(object sender, EventArgs e)
         {
             WallLocation();
         }
-
+        //Timer 1
         private void timer1_Tick(object sender, EventArgs e)
         {
             Update();
             if (GameOverCheck == true)
                 timer1.Enabled = false;
         }
-
+        //Change Color The ProgressBar
         private void ProgressValueChangedEvent()
         {
             if(progressBar1.Value > 70)
