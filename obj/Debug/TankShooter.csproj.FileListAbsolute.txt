@@ -1,0 +1,11 @@
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\TankShooter.csprojAssemblyReference.cache
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\TankShooter.Properties.Resources.resources
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\TankShooter.csproj.GenerateResource.cache
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\TankShooter.csproj.CoreCompileInputs.cache
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\TankShooter.Form1.resources
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\bin\Debug\Tank Shooter Game.exe.config
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\bin\Debug\Tank Shooter Game.exe
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\bin\Debug\Tank Shooter Game.pdb
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\Tank Shooter Game.exe
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\Tank Shooter Game.pdb
+C:\Users\Mehran\source\repos\TankShooter\TankShooter\obj\Debug\TankShooter.Intro.resources
