@@ -1,4 +1,4 @@
 - After downloading the files as RAR, any compressed file must be extracted, including in the following paths:
-- - 1) obj\Debug
-- - 2) bin\Debug
+- 1) obj\Debug
+- 2) bin\Debug
 - Shortcut the "EXE" executable file located in the "bin\Debug" path on your desktop, then run the shortcut executable file.
